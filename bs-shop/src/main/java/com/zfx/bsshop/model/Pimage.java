@@ -11,31 +11,61 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
 public class Pimage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 商品图片id
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 商品id
+     */
     private Integer pid;
 
+    /**
+     * 图片名
+     */
     private String name;
 
+    /**
+     * 服务器的绝对路径
+     */
     private String serverPath;
 
+    /**
+     * 项目访问路径
+     */
     private String projectPath;
 
+    /**
+     * 项目域名
+     */
     private String domain;
 
+    /**
+     * 创建时间
+     */
     private LocalDateTime createdTime;
 
+    /**
+     * 修改时间
+     */
     private LocalDateTime modifiedTime;
 
+    /**
+     * 创建的用户
+     */
     private String createdUser;
 
+    /**
+     * 修改的用户
+     */
     private String modifiedUser;
 
     public Integer getId() {

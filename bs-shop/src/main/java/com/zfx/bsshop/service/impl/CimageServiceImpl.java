@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
 @Service
 public class CimageServiceImpl extends ServiceImpl<CimageMapper, Cimage> implements CimageService {

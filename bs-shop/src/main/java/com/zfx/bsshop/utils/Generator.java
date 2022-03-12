@@ -1,12 +1,18 @@
 package com.zfx.bsshop.utils;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.generator.FastAutoGenerator;
+import com.baomidou.mybatisplus.generator.config.OutputFile;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+
+import java.util.Collections;
+
 /**
  * @author zfx
  * @date 2022-03-03 22:03
  */
 public class Generator {
     public static void main(String[] args) {
-        /*
         FastAutoGenerator.create("jdbc:mysql://localhost:3306/netmall?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8",
                         "root", "000000")
                 .globalConfig(builder -> {
@@ -27,7 +33,7 @@ public class Generator {
                                     "C:\\Users\\zfx\\Desktop\\workspaces\\k\\java\\shop\\bs-shop\\src\\main\\resources\\mapper"));
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("customer","product","pimage","cimage","category","address") // 设置需要生成的表名
+                    builder.addInclude("user","product","pimage","cimage","category","address","ctg_detail","prd_attr") // 设置需要生成的表名
                             .serviceBuilder()
                             .formatServiceFileName("%sService")
                             .mapperBuilder()
@@ -38,7 +44,6 @@ public class Generator {
                 })
                 .templateEngine(new FreemarkerTemplateEngine())
                 .execute();
-        */
 
         /*
         String host = "smtp.163.com";

@@ -11,31 +11,55 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 地址id，自增
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 用户id，自增
+     */
     private Integer uid;
 
+    /**
+     * 用户所在地区
+     */
     private String region;
 
+    /**
+     * 用户详细地址
+     */
     private String detail;
 
+    /**
+     * 收件人，接收快递的人的名字
+     */
     private String consignee;
 
+    /**
+     * 收件人联系电话
+     */
     private String phone;
 
+    /**
+     * 地址创建时间
+     */
     private LocalDateTime createdTime;
 
+    /**
+     * 地址修改时间
+     */
     private LocalDateTime modifiedTime;
 
     /**
-     * 0:不默认；1默认
+     * 是不是默认地址，0:不默认；1默认
      */
     private Integer defaultStatus;
 

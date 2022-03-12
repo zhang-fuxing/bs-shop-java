@@ -11,31 +11,61 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
 public class Cimage implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 用户头像图片id
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 对应的用户id
+     */
     private Integer uid;
 
+    /**
+     * 图片名
+     */
     private String name;
 
+    /**
+     * 本机地址，即服务器的绝对地址
+     */
     private String localPath;
 
+    /**
+     * 项目路径，即静态资源访问地址，域名之后的路径
+     */
     private String projectPath;
 
+    /**
+     * 域名地址，服务器的域名
+     */
     private String domain;
 
+    /**
+     * 图片上传时间
+     */
     private LocalDateTime createdTime;
 
+    /**
+     * 修改时间
+     */
     private LocalDateTime modifiedTime;
 
+    /**
+     * 上传的用户
+     */
     private String createdUser;
 
+    /**
+     * 修改的用户
+     */
     private String modifiedUser;
 
     public Integer getId() {

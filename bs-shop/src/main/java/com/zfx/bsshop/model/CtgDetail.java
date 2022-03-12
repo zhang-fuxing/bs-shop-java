@@ -2,6 +2,7 @@ package com.zfx.bsshop.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 
 /**
@@ -12,18 +13,24 @@ import java.io.Serializable;
  * @author zfx
  * @since 2022-03-12
  */
-public class Category implements Serializable {
+@TableName("ctg_detail")
+public class CtgDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 1级类别id
+     * 详细商品分类id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 1级类别名
+     * 大的商品分类id
+     */
+    private Integer cid;
+
+    /**
+     * 分类名
      */
     private String name;
 
@@ -33,6 +40,13 @@ public class Category implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+    public Integer getCid() {
+        return cid;
+    }
+
+    public void setCid(Integer cid) {
+        this.cid = cid;
     }
     public String getName() {
         return name;
@@ -44,8 +58,9 @@ public class Category implements Serializable {
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "CtgDetail{" +
             "id=" + id +
+            ", cid=" + cid +
             ", name=" + name +
         "}";
     }

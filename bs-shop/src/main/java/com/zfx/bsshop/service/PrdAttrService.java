@@ -1,6 +1,6 @@
 package com.zfx.bsshop.service;
 
-import com.zfx.bsshop.model.Cimage;
+import com.zfx.bsshop.model.PrdAttr;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author zfx
  * @since 2022-03-12
  */
-public interface CimageService extends IService<Cimage> {
+public interface PrdAttrService extends IService<PrdAttr> {
 
 }

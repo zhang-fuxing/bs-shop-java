@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
 @Service
 public class PimageServiceImpl extends ServiceImpl<PimageMapper, Pimage> implements PimageService {

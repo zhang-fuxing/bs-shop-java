@@ -1,8 +1,8 @@
 package com.zfx.bsshop.service.impl;
 
-import com.zfx.bsshop.model.Product;
-import com.zfx.bsshop.mapper.ProductMapper;
-import com.zfx.bsshop.service.ProductService;
+import com.zfx.bsshop.model.User;
+import com.zfx.bsshop.mapper.UserMapper;
+import com.zfx.bsshop.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-12
  */
 @Service
-public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> implements ProductService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
 }

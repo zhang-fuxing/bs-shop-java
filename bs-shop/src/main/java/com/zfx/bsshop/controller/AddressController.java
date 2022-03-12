@@ -1,7 +1,6 @@
 package com.zfx.bsshop.controller;
 
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
@@ -12,11 +11,10 @@ import org.springframework.stereotype.Controller;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
 @Controller
 @RequestMapping("/bsshop/address")
-@CrossOrigin
 public class AddressController {
 
 }

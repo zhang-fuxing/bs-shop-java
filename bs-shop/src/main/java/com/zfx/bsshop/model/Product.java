@@ -12,30 +12,51 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 商品id
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 2级分类id
+     */
     private Integer categoryId;
 
+    /**
+     * 商品名字
+     */
     private String pname;
 
+    /**
+     * 商品的详细描述
+     */
     private String description;
 
+    /**
+     * 商品单价
+     */
     private BigDecimal unitPrice;
 
     /**
-     * 售卖产品的分类，如上面颜色，什么口味等
+     * 商品属性：售卖产品的分类，如上面颜色，什么口味等
      */
-    private Integer prdCategory;
+    private Integer prdAttr;
 
+    /**
+     * 商品图片
+     */
     private Integer prdImg;
 
+    /**
+     * 商品库存
+     */
     private Integer inventoryNum;
 
     /**
@@ -43,14 +64,29 @@ public class Product implements Serializable {
      */
     private String storeName;
 
+    /**
+     * 创建时间
+     */
     private LocalDateTime createdTime;
 
+    /**
+     * 修改时间
+     */
     private LocalDateTime modifiedTime;
 
+    /**
+     * 创建的用户
+     */
     private String createdUser;
 
+    /**
+     * 修改的用户
+     */
     private String modifiedUser;
 
+    /**
+     * 是否删除：默认0，未删除，1表示已删除
+     */
     private Integer isDelete;
 
     public Integer getId() {
@@ -88,12 +124,12 @@ public class Product implements Serializable {
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
-    public Integer getPrdCategory() {
-        return prdCategory;
+    public Integer getPrdAttr() {
+        return prdAttr;
     }
 
-    public void setPrdCategory(Integer prdCategory) {
-        this.prdCategory = prdCategory;
+    public void setPrdAttr(Integer prdAttr) {
+        this.prdAttr = prdAttr;
     }
     public Integer getPrdImg() {
         return prdImg;
@@ -160,7 +196,7 @@ public class Product implements Serializable {
             ", pname=" + pname +
             ", description=" + description +
             ", unitPrice=" + unitPrice +
-            ", prdCategory=" + prdCategory +
+            ", prdAttr=" + prdAttr +
             ", prdImg=" + prdImg +
             ", inventoryNum=" + inventoryNum +
             ", storeName=" + storeName +

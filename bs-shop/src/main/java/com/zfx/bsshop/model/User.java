@@ -11,46 +11,85 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author zfx
- * @since 2022-03-06
+ * @since 2022-03-12
  */
-public class Customer implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 用户内部id
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 程序生成的用户id
+     */
     private String uid;
 
+    /**
+     * 用户的昵称
+     */
     private String nickname;
 
+    /**
+     * 用户名，不能重复
+     */
     private String uname;
 
+    /**
+     * 用户登录密码
+     */
     private String password;
 
+    /**
+     * 用户的联系电话
+     */
     private String phone;
 
+    /**
+     * 用户性别
+     */
     private Integer sex;
 
+    /**
+     * 头像id
+     */
     private Integer headImg;
 
+    /**
+     * 用户邮件地址
+     */
     private String email;
 
+    /**
+     * 用户生日
+     */
     private String birthday;
 
+    /**
+     * 使用的收货地址id
+     */
     private Integer address;
 
     /**
-     * 1:正常登录；-1：冻结；
+     * 用户账号状态；1:正常登录；-1：冻结
      */
     private Integer userStatus;
 
+    /**
+     * 用户注册时间
+     */
     private LocalDateTime createdTime;
 
+    /**
+     * 用户修改信息的时间
+     */
     private LocalDateTime modifiedTime;
 
     /**
-     * 0：未删除；1：已删除
+     * 账号是否删除：0：未删除；1：已删除
      */
     private Integer isDelete;
 
@@ -162,7 +201,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "User{" +
             "id=" + id +
             ", uid=" + uid +
             ", nickname=" + nickname +

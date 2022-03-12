@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
  * @since 2022-03-12
  */
 @Controller
-@RequestMapping("/bsshop/cimage")
-public class CimageController {
+@RequestMapping("/bsshop/user")
+public class UserController {
 
 }

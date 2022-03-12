@@ -1,9 +1,6 @@
 package com.zfx.bsshop.service.impl;
 
 import com.zfx.bsshop.dto.SignIn;
-import com.zfx.bsshop.model.Customer;
-import com.zfx.bsshop.mapper.CustomerMapper;
-import com.zfx.bsshop.service.CustomerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
