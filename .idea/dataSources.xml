@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="bs-mall@localhost" uuid="950639ad-dcc4-4faa-bc14-14fd1af675f4">
+    <data-source source="LOCAL" name="netmall@localhost" uuid="bbb96c86-5130-481b-82ff-f4ac35a2049c">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/bs-mall</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/netmall</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

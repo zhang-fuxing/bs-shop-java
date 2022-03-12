@@ -24,6 +24,7 @@ public class ResultModel<T> {
     public static <T> ResultModel<T> success(T content){
         return new ResultModel<T>(0,"success",content);
     }
+
     public static <T> ResultModel<T> error(int code,String message){
         return new ResultModel<T>(code,message);
     }

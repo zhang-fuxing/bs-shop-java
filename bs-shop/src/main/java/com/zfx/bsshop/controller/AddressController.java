@@ -2,8 +2,7 @@ package com.zfx.bsshop.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -13,8 +12,8 @@ import org.springframework.stereotype.Controller;
  * @author zfx
  * @since 2022-03-12
  */
-@Controller
-@RequestMapping("/bsshop/address")
+@RestController
+@RequestMapping("/address")
 public class AddressController {
 
 }

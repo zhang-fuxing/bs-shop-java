@@ -1,8 +1,11 @@
 package com.zfx.bsshop.mapper;
 
-import com.zfx.bsshop.model.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zfx.bsshop.dto.SignIn;
+import com.zfx.bsshop.model.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,4 +18,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
 
+    List<User> selectOne(SignIn sign);
+    List<User> selectByAccount(User user);
 }
