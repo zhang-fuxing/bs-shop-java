@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>主页</title>
+        <link rel="stylesheet" href="/static/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+        <script src="/static/js/jquery-3.6.0.js"></script>
+        <script src="/static/bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+        <script src="/static/js/vue3.js"></script>
+        <script src="/static/js/axios.js"></script>
+    </head>
+</head>
+<body>
+<div id="app">
+    <div>
+        <h>token::{{token}}</h>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const data = () => {
+        return {
+            token: localStorage.getItem('token')
+        }
+    }
+
+    Vue.createApp({data}).mount('#app')
+
+    (() => {
+        console.log(localStorage.getItem('token'))
+    })();
+</script>
+</body>
+</html>
