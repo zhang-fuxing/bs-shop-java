@@ -16,9 +16,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns(
-                        "/**",
-                        "/customer/login",
-                        "/customer/reg"
+                        "/user/login",
+                        "/user/reg",
+                        "/product/index",
+                        "/category/**"
                 )
                 .excludePathPatterns("/static/**");
     }

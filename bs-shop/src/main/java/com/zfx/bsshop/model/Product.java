@@ -1,92 +1,35 @@
 package com.zfx.bsshop.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.Date;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author zfx
- * @since 2022-03-12
- */
-public class Product implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 商品id
-     */
-    @TableId(value = "id", type = IdType.AUTO)
+public class Product {
     private Integer id;
 
-    /**
-     * 2级分类id
-     */
     private Integer categoryId;
 
-    /**
-     * 商品名字
-     */
     private String pname;
 
-    /**
-     * 商品的详细描述
-     */
     private String description;
 
-    /**
-     * 商品单价
-     */
     private BigDecimal unitPrice;
 
-    /**
-     * 商品属性：售卖产品的分类，如上面颜色，什么口味等
-     */
     private Integer prdAttr;
 
-    /**
-     * 商品图片
-     */
     private Integer prdImg;
 
-    /**
-     * 商品库存
-     */
     private Integer inventoryNum;
 
-    /**
-     * 店铺名，说明商品属于哪家店铺
-     */
     private String storeName;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createdTime;
+    private Date createdTime;
 
-    /**
-     * 修改时间
-     */
-    private LocalDateTime modifiedTime;
+    private Date modifiedTime;
 
-    /**
-     * 创建的用户
-     */
     private String createdUser;
 
-    /**
-     * 修改的用户
-     */
     private String modifiedUser;
 
-    /**
-     * 是否删除：默认0，未删除，1表示已删除
-     */
     private Integer isDelete;
 
     public Integer getId() {
@@ -96,6 +39,7 @@ public class Product implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public Integer getCategoryId() {
         return categoryId;
     }
@@ -103,6 +47,7 @@ public class Product implements Serializable {
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
+
     public String getPname() {
         return pname;
     }
@@ -110,6 +55,7 @@ public class Product implements Serializable {
     public void setPname(String pname) {
         this.pname = pname;
     }
+
     public String getDescription() {
         return description;
     }
@@ -117,6 +63,7 @@ public class Product implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public BigDecimal getUnitPrice() {
         return unitPrice;
     }
@@ -124,6 +71,7 @@ public class Product implements Serializable {
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
+
     public Integer getPrdAttr() {
         return prdAttr;
     }
@@ -131,6 +79,7 @@ public class Product implements Serializable {
     public void setPrdAttr(Integer prdAttr) {
         this.prdAttr = prdAttr;
     }
+
     public Integer getPrdImg() {
         return prdImg;
     }
@@ -138,6 +87,7 @@ public class Product implements Serializable {
     public void setPrdImg(Integer prdImg) {
         this.prdImg = prdImg;
     }
+
     public Integer getInventoryNum() {
         return inventoryNum;
     }
@@ -145,6 +95,7 @@ public class Product implements Serializable {
     public void setInventoryNum(Integer inventoryNum) {
         this.inventoryNum = inventoryNum;
     }
+
     public String getStoreName() {
         return storeName;
     }
@@ -152,20 +103,23 @@ public class Product implements Serializable {
     public void setStoreName(String storeName) {
         this.storeName = storeName;
     }
-    public LocalDateTime getCreatedTime() {
+
+    public Date getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(LocalDateTime createdTime) {
+    public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
     }
-    public LocalDateTime getModifiedTime() {
+
+    public Date getModifiedTime() {
         return modifiedTime;
     }
 
-    public void setModifiedTime(LocalDateTime modifiedTime) {
+    public void setModifiedTime(Date modifiedTime) {
         this.modifiedTime = modifiedTime;
     }
+
     public String getCreatedUser() {
         return createdUser;
     }
@@ -173,6 +127,7 @@ public class Product implements Serializable {
     public void setCreatedUser(String createdUser) {
         this.createdUser = createdUser;
     }
+
     public String getModifiedUser() {
         return modifiedUser;
     }
@@ -180,31 +135,12 @@ public class Product implements Serializable {
     public void setModifiedUser(String modifiedUser) {
         this.modifiedUser = modifiedUser;
     }
+
     public Integer getIsDelete() {
         return isDelete;
     }
 
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-            "id=" + id +
-            ", categoryId=" + categoryId +
-            ", pname=" + pname +
-            ", description=" + description +
-            ", unitPrice=" + unitPrice +
-            ", prdAttr=" + prdAttr +
-            ", prdImg=" + prdImg +
-            ", inventoryNum=" + inventoryNum +
-            ", storeName=" + storeName +
-            ", createdTime=" + createdTime +
-            ", modifiedTime=" + modifiedTime +
-            ", createdUser=" + createdUser +
-            ", modifiedUser=" + modifiedUser +
-            ", isDelete=" + isDelete +
-        "}";
     }
 }

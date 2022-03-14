@@ -2,7 +2,7 @@ package com.zfx.bsshop.model;
 
 import java.util.Date;
 
-public class Address {
+public class rAddress {
     private Integer id;
 
     private Integer uid;

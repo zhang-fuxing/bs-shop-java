@@ -1,7 +1,8 @@
 package com.zfx.bsshop.service;
 
 import com.zfx.bsshop.model.Category;
-import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -11,6 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author zfx
  * @since 2022-03-12
  */
-public interface CategoryService extends IService<Category> {
-
+public interface CategoryService {
+    List<Category> getAllLevel1();
 }

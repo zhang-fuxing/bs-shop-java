@@ -1,71 +1,26 @@
 package com.zfx.bsshop.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.util.Date;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author zfx
- * @since 2022-03-12
- */
-public class Pimage implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 商品图片id
-     */
-    @TableId(value = "id", type = IdType.AUTO)
+public class Pimage {
     private Integer id;
 
-    /**
-     * 商品id
-     */
     private Integer pid;
 
-    /**
-     * 图片名
-     */
     private String name;
 
-    /**
-     * 服务器的绝对路径
-     */
     private String serverPath;
 
-    /**
-     * 项目访问路径
-     */
     private String projectPath;
 
-    /**
-     * 项目域名
-     */
     private String domain;
 
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createdTime;
+    private Date createdTime;
 
-    /**
-     * 修改时间
-     */
-    private LocalDateTime modifiedTime;
+    private Date modifiedTime;
 
-    /**
-     * 创建的用户
-     */
     private String createdUser;
 
-    /**
-     * 修改的用户
-     */
     private String modifiedUser;
 
     public Integer getId() {
@@ -75,6 +30,7 @@ public class Pimage implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public Integer getPid() {
         return pid;
     }
@@ -82,6 +38,7 @@ public class Pimage implements Serializable {
     public void setPid(Integer pid) {
         this.pid = pid;
     }
+
     public String getName() {
         return name;
     }
@@ -89,6 +46,7 @@ public class Pimage implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
     public String getServerPath() {
         return serverPath;
     }
@@ -96,6 +54,7 @@ public class Pimage implements Serializable {
     public void setServerPath(String serverPath) {
         this.serverPath = serverPath;
     }
+
     public String getProjectPath() {
         return projectPath;
     }
@@ -103,6 +62,7 @@ public class Pimage implements Serializable {
     public void setProjectPath(String projectPath) {
         this.projectPath = projectPath;
     }
+
     public String getDomain() {
         return domain;
     }
@@ -110,20 +70,23 @@ public class Pimage implements Serializable {
     public void setDomain(String domain) {
         this.domain = domain;
     }
-    public LocalDateTime getCreatedTime() {
+
+    public Date getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(LocalDateTime createdTime) {
+    public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
     }
-    public LocalDateTime getModifiedTime() {
+
+    public Date getModifiedTime() {
         return modifiedTime;
     }
 
-    public void setModifiedTime(LocalDateTime modifiedTime) {
+    public void setModifiedTime(Date modifiedTime) {
         this.modifiedTime = modifiedTime;
     }
+
     public String getCreatedUser() {
         return createdUser;
     }
@@ -131,27 +94,12 @@ public class Pimage implements Serializable {
     public void setCreatedUser(String createdUser) {
         this.createdUser = createdUser;
     }
+
     public String getModifiedUser() {
         return modifiedUser;
     }
 
     public void setModifiedUser(String modifiedUser) {
         this.modifiedUser = modifiedUser;
-    }
-
-    @Override
-    public String toString() {
-        return "Pimage{" +
-            "id=" + id +
-            ", pid=" + pid +
-            ", name=" + name +
-            ", serverPath=" + serverPath +
-            ", projectPath=" + projectPath +
-            ", domain=" + domain +
-            ", createdTime=" + createdTime +
-            ", modifiedTime=" + modifiedTime +
-            ", createdUser=" + createdUser +
-            ", modifiedUser=" + modifiedUser +
-        "}";
     }
 }

@@ -1,9 +1,6 @@
 package com.zfx.bsshop.service.impl;
 
-import com.zfx.bsshop.model.Address;
-import com.zfx.bsshop.mapper.AddressMapper;
 import com.zfx.bsshop.service.AddressService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +12,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-12
  */
 @Service
-public class AddressServiceImpl extends ServiceImpl<AddressMapper, Address> implements AddressService {
+public class AddressServiceImpl implements AddressService {
 
 }

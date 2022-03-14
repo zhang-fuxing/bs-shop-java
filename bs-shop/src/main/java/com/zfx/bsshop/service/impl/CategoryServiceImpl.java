@@ -1,10 +1,13 @@
 package com.zfx.bsshop.service.impl;
 
+import com.zfx.bsshop.dao.CategorytDAO;
 import com.zfx.bsshop.model.Category;
-import com.zfx.bsshop.mapper.CategoryMapper;
+import com.zfx.bsshop.model.CategoryExample;
 import com.zfx.bsshop.service.CategoryService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,6 +18,14 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-12
  */
 @Service
-public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
+    @Autowired
+    private CategorytDAO categorytDAO;
 
+    @Override
+    public List<Category> getAllLevel1() {
+        CategoryExample categoryExample = new CategoryExample();
+        categoryExample.createCriteria();
+        return categorytDAO.selectByExample(categoryExample);
+    }
 }

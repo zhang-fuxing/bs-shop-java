@@ -1,9 +1,6 @@
 package com.zfx.bsshop.service.impl;
 
-import com.zfx.bsshop.model.Cimage;
-import com.zfx.bsshop.mapper.CimageMapper;
 import com.zfx.bsshop.service.CimageService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +12,6 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-12
  */
 @Service
-public class CimageServiceImpl extends ServiceImpl<CimageMapper, Cimage> implements CimageService {
+public class CimageServiceImpl implements CimageService {
 
 }

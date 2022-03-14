@@ -1,6 +1,5 @@
 package com.zfx.bsshop.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.zfx.bsshop.common.util.ResultModel;
 import com.zfx.bsshop.dto.SignIn;
 import com.zfx.bsshop.model.User;
@@ -13,7 +12,7 @@ import com.zfx.bsshop.model.User;
  * @author zfx
  * @since 2022-03-12
  */
-public interface UserService extends IService<User> {
+public interface UserService {
 
     ResultModel<User> login(SignIn sign);
 }
