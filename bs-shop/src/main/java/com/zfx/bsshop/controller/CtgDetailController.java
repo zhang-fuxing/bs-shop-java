@@ -1,6 +1,7 @@
 package com.zfx.bsshop.controller;
 
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/ctg-detail")
+@CrossOrigin
 public class CtgDetailController {
+
 
 }

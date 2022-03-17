@@ -92,4 +92,19 @@ public class Address {
     public void setDefaultStatus(Integer defaultStatus) {
         this.defaultStatus = defaultStatus;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", uid=" + uid +
+                ", region='" + region + '\'' +
+                ", detail='" + detail + '\'' +
+                ", consignee='" + consignee + '\'' +
+                ", phone='" + phone + '\'' +
+                ", createdTime=" + createdTime +
+                ", modifiedTime=" + modifiedTime +
+                ", defaultStatus=" + defaultStatus +
+                '}';
+    }
 }

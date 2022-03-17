@@ -102,4 +102,20 @@ public class Cimage {
     public void setModifiedUser(String modifiedUser) {
         this.modifiedUser = modifiedUser;
     }
+
+    @Override
+    public String toString() {
+        return "Cimage{" +
+                "id=" + id +
+                ", uid=" + uid +
+                ", name='" + name + '\'' +
+                ", localPath='" + localPath + '\'' +
+                ", projectPath='" + projectPath + '\'' +
+                ", domain='" + domain + '\'' +
+                ", createdTime=" + createdTime +
+                ", modifiedTime=" + modifiedTime +
+                ", createdUser='" + createdUser + '\'' +
+                ", modifiedUser='" + modifiedUser + '\'' +
+                '}';
+    }
 }

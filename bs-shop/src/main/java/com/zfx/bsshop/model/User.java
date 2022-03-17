@@ -152,4 +152,25 @@ public class User {
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", uid='" + uid + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", uname='" + uname + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", sex=" + sex +
+                ", headImg=" + headImg +
+                ", email='" + email + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", address=" + address +
+                ", userStatus=" + userStatus +
+                ", createdTime=" + createdTime +
+                ", modifiedTime=" + modifiedTime +
+                ", isDelete=" + isDelete +
+                '}';
+    }
 }

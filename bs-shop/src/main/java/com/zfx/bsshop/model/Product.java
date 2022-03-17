@@ -143,4 +143,24 @@ public class Product {
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", categoryId=" + categoryId +
+                ", pname='" + pname + '\'' +
+                ", description='" + description + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", prdAttr=" + prdAttr +
+                ", prdImg=" + prdImg +
+                ", inventoryNum=" + inventoryNum +
+                ", storeName='" + storeName + '\'' +
+                ", createdTime=" + createdTime +
+                ", modifiedTime=" + modifiedTime +
+                ", createdUser='" + createdUser + '\'' +
+                ", modifiedUser='" + modifiedUser + '\'' +
+                ", isDelete=" + isDelete +
+                '}';
+    }
 }

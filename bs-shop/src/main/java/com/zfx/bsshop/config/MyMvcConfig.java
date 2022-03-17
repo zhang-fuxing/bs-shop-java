@@ -19,7 +19,8 @@ public class MyMvcConfig implements WebMvcConfigurer {
                         "/user/login",
                         "/user/reg",
                         "/product/index",
-                        "/category/**"
+                        "/category/**",
+                        "/**"
                 )
                 .excludePathPatterns("/static/**");
     }

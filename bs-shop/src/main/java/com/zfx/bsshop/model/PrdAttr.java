@@ -20,4 +20,12 @@ public class PrdAttr {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "PrdAttr{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

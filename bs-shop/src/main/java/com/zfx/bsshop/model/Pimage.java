@@ -102,4 +102,20 @@ public class Pimage {
     public void setModifiedUser(String modifiedUser) {
         this.modifiedUser = modifiedUser;
     }
+
+    @Override
+    public String toString() {
+        return "Pimage{" +
+                "id=" + id +
+                ", pid=" + pid +
+                ", name='" + name + '\'' +
+                ", serverPath='" + serverPath + '\'' +
+                ", projectPath='" + projectPath + '\'' +
+                ", domain='" + domain + '\'' +
+                ", createdTime=" + createdTime +
+                ", modifiedTime=" + modifiedTime +
+                ", createdUser='" + createdUser + '\'' +
+                ", modifiedUser='" + modifiedUser + '\'' +
+                '}';
+    }
 }

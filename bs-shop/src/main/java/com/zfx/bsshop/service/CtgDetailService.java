@@ -1,5 +1,9 @@
 package com.zfx.bsshop.service;
 
+import com.zfx.bsshop.model.CtgDetail;
+
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -9,5 +13,5 @@ package com.zfx.bsshop.service;
  * @since 2022-03-12
  */
 public interface CtgDetailService {
-
+    List<CtgDetail> getAllLevel2();
 }
