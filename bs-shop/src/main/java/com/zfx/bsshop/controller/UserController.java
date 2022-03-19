@@ -9,9 +9,13 @@ import com.zfx.bsshop.dto.SignIn;
 import com.zfx.bsshop.model.User;
 import com.zfx.bsshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
@@ -42,4 +46,10 @@ public class UserController {
 
         return JSON.toJSONString(ResultModel.success(token));
     }
+
+    @GetMapping("/verify")
+    public void getVerifyImg(HttpServletRequest request, HttpServletResponse response) {
+        userService.getVerifyImage(request, response);
+    }
+
 }
