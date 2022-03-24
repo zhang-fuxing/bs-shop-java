@@ -21,11 +21,11 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/**/*.xml
-  type-aliases-package: com.zfx.bsshop.model
+  type-aliases-package: com.zfx.bsshop.dao
   configuration:
     map-underscore-to-camel-case: true
     use-generated-keys: true
 
 logging:
   level:
-    com.zfx.bsshop.mapper: debug
+    com.zfx.bsshop.dao: debug

@@ -1,6 +1,7 @@
 package com.zfx.bsshop.service;
 
 import com.zfx.bsshop.model.Category;
+import com.zfx.bsshop.vo.CategoryVO;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ import java.util.List;
  */
 public interface CategoryService {
     List<Category> getAllLevel1();
+    List<CategoryVO> getAllLevel2();
+    List<CategoryVO> getLevelById(int id);
 }

@@ -1,6 +1,9 @@
 package com.zfx.bsshop.config;
 
 import com.zfx.bsshop.common.interceptor.LoginInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -25,4 +28,8 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/static/**");
     }
 
+    @Bean
+    public Logger getLogger() {
+        return LoggerFactory.getLogger(getClass());
+    }
 }
