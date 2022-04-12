@@ -9,5 +9,6 @@ package com.zfx.bsshop.service;
  * @since 2022-03-12
  */
 public interface ProductService {
+    boolean addProduct();
 
 }
