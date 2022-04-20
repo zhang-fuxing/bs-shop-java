@@ -14,13 +14,13 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/shop/pom.xml" />
-        <option value="$PROJECT_DIR$/shop1/pom.xml" />
         <option value="$PROJECT_DIR$/bs-shop/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/bs-mall/pom.xml" />
+        <option value="$PROJECT_DIR$/mall/pom.xml" />
       </set>
     </option>
   </component>
