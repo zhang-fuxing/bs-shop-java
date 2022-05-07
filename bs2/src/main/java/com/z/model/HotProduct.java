@@ -1,0 +1,80 @@
+package com.z.model;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author z
+ * @since 2022-04-28
+ */
+@TableName("hot_product")
+public class HotProduct implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 热销商品表
+     */
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
+
+    /**
+     * 商品id
+     */
+    private Integer pid;
+
+    /**
+     * 商品名
+     */
+    private String pname;
+
+    /**
+     * 商品图片
+     */
+    private String pimg;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+    public String getPimg() {
+        return pimg;
+    }
+
+    public void setPimg(String pimg) {
+        this.pimg = pimg;
+    }
+
+    @Override
+    public String toString() {
+        return "HotProduct{" +
+            "id=" + id +
+            ", pid=" + pid +
+            ", pname=" + pname +
+            ", pimg=" + pimg +
+        "}";
+    }
+}
