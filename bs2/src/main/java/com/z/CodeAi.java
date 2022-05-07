@@ -30,10 +30,13 @@ public class CodeAi {
                             .service("service")
                             // 设置mapperXml生成路径
                             .pathInfo(Collections.singletonMap(OutputFile.mapperXml,
-                                    "C:\\Users\\zfx\\Desktop\\workspaces\\k\\java\\springbootCollection\\bs2\\src\\main\\resources\\mapping"));
+                                    "C:\\Users\\zfx\\Desktop\\workspaces\\k\\java\\springbootCollection\\bs2\\src\\main\\resources\\mapper"));
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("user","product","pimage","ctg_detail","address","category","cimage","prd_attr") // 设置需要生成的表名
+                    // "user","product","pimage","ctg_detail","estimate"，"address","category","cimage",
+                    // "prd_attr"，"order","address","cart_item","order_item"，"cart_item","user_estimate"
+                    // "recommend"
+                    builder.addInclude("estimate") // 设置需要生成的表名
                             .serviceBuilder()
                             .formatServiceFileName("%sService")
                             .mapperBuilder()
@@ -44,5 +47,8 @@ public class CodeAi {
                 })
                 .templateEngine(new FreemarkerTemplateEngine())
                 .execute();
+
+        // MailUtil.send("1789253892@qq.com","sbxxxx","sbxx",false,new File("D:\\localfile\\photos\\1\\1.jpeg"));
+
     }
 }

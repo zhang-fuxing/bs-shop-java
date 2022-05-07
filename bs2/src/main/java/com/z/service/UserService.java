@@ -1,12 +1,8 @@
 package com.z.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.z.common.util.ResultModel;
-import com.z.dto.SignIn;
+import com.z.dto.LoginDTO;
 import com.z.model.User;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
@@ -17,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2022-04-19
  */
 public interface UserService extends IService<User> {
-    ResultModel<User> login(SignIn sign);
-    void getVerifyImage(HttpServletRequest request, HttpServletResponse response);
+    String userLogin(LoginDTO loginDTO);
+    String userRegister(User user);
+
+    String getUserList();
+    String getFreezeList();
 }

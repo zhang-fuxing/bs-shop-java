@@ -1,7 +1,6 @@
 package com.z.controller;
 
 
-import com.alibaba.fastjson.JSON;
 import com.z.common.util.ResultModel;
 import com.z.service.PimageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +24,31 @@ public class PimageController {
     @Autowired
     private PimageService ps;
 
-    @PostMapping("/file")
-    public String fileupload(@RequestParam("file") MultipartFile[] files) throws IOException {
-        if(files.length == 0) {
-            return JSON.toJSONString( ResultModel.error("未选择文件"));
-        }
-        if (!ps.fileupload(files,"D:/project-resources","det").equals("success")) {
-            return JSON.toJSONString( ResultModel.error("上传错误"));
+
+    /**
+     * 图片上传接口，处理商品图片上传
+     * @param files 单个文件
+     * @param imgType 图片类型：1.预览图；2.详情图
+     * @return 上传成功，返回图片对象
+     * @throws IOException 可能出现io异常
+     */
+    @PostMapping("/file/{imgType}")
+    public String fileupload(@RequestParam("file") MultipartFile files,@PathVariable("imgType") int imgType) throws IOException {
+        if(files == null) {
+            return ResultModel.error("未选择文件");
         }
 
-        return JSON.toJSONString(ResultModel.success("上传成功"));
+        String fileupload = ps.fileupload(files,imgType);
+        if (fileupload == null) {
+            return ResultModel.error("上传错误");
+        }
+
+        return (fileupload);
+    }
+
+    @GetMapping("/imgList/{productId}")
+    public String getImageByPid(@PathVariable("productId") Integer productId) {
+        String imageListByPid = ps.getImageListByPid(productId);
+        return imageListByPid;
     }
 }

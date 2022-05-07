@@ -62,7 +62,7 @@ public class CategoryController {
     public String getLevelById(@PathVariable("id") int id) {
         QueryWrapper<CtgDetail> wrapper = new QueryWrapper<>();
         wrapper.eq("cid",id);
-        CtgDetail list = ctgDetailService.getOne(wrapper);
+        List<CtgDetail> list = ctgDetailService.list(wrapper);
         if (list == null)
             return ResultModel.error(301,"列表为空");
         return ResultModel.success(list);

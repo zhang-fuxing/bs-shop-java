@@ -59,4 +59,15 @@ public class IPages {
     public void setDid(Integer did) {
         this.did = did;
     }
+
+    @Override
+    public String toString() {
+        return "IPages{" +
+                "currentPage=" + currentPage +
+                ", pageIndex=" + pageIndex +
+                ", pageSize=" + pageSize +
+                ", cid=" + cid +
+                ", did=" + did +
+                '}';
+    }
 }

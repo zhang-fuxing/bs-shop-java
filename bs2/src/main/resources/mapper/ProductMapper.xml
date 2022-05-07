@@ -66,43 +66,53 @@
         select count(*) total
         from product
     </select>
-    <select id="selectProductList" resultMap="productView" parameterType="com.z.common.util.IPages">
-        select p.id            id1,
-               p.category_id   cid,
-               p.ctg_id        did,
-               pname,
-               description,
-               p.unit_price    price,
-               p.inventory_num num,
-               p.store_name    sname,
-               p.created_time  pct,
-               p.modified_time pmt,
-               p.created_user  pcu,
-               p.modified_user pmu,
-               i.id            id2,
-               pid,
-               i.img_type      imgtype,
-               i.name          iname,
-               i.server_path   spath,
-               i.project_path  ppath,
-               domain,
-               i.created_time  ict,
-               i.modified_time imt,
-               i.created_user  icu,
-               i.modified_user imu
-        from
-             (
-                 select *
-                 from product
-                 where is_delete = 0
-                 <if test="cid != null">
-                     and category_id=#{cid}
-                 </if>
-                 <if test="did != null">
-                     and ctg_id=#{did}
-                 </if>
-                 limit #{pageIndex},#{pageSize}) p
-                 left join pimage i on p.id = i.pid
+    <select id="selectProductList" resultType="com.z.model.Product" parameterType="com.z.common.util.IPages">
+        select * from product where is_delete=0
+        <if test="cid != null">
+            and category_id=#{cid}
+        </if>
+        <if test="did != null">
+            and ctg_id=#{did}
+        </if>
+        limit #{pageIndex},#{pageSize}
     </select>
+    <!--    <select id="selectProductList" resultMap="productView" parameterType="com.z.common.util.IPages">
+            select p.id            id1,
+                   p.category_id   cid,
+                   p.ctg_id        did,
+                   pname,
+                   description,
+                   p.unit_price    price,
+                   p.inventory_num num,
+                   p.store_name    sname,
+                   p.created_time  pct,
+                   p.modified_time pmt,
+                   p.created_user  pcu,
+                   p.modified_user pmu,
+                   i.id            id2,
+                   pid,
+                   i.img_type      imgtype,
+                   i.name          iname,
+                   i.server_path   spath,
+                   i.project_path  ppath,
+                   domain,
+                   i.created_time  ict,
+                   i.modified_time imt,
+                   i.created_user  icu,
+                   i.modified_user imu
+            from
+                 (
+                     select *
+                     from product
+                     where is_delete = 0
+                     <if test="cid != null">
+                         and category_id=#{cid}
+                     </if>
+                     <if test="did != null">
+                         and ctg_id=#{did}
+                     </if>
+                     limit #{pageIndex},#{pageSize}) p
+                     left join pimage i on p.id = i.pid
+        </select>-->
 
 </mapper>

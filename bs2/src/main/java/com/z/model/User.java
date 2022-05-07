@@ -56,7 +56,7 @@ public class User implements Serializable {
     /**
      * 头像id
      */
-    private Integer headImg;
+    private String headImg;
 
     /**
      * 用户邮件地址
@@ -142,13 +142,14 @@ public class User implements Serializable {
     public void setSex(Integer sex) {
         this.sex = sex;
     }
-    public Integer getHeadImg() {
+
+    public String getHeadImg() {
         return headImg;
     }
-
-    public void setHeadImg(Integer headImg) {
+    public void setHeadImg(String headImg) {
         this.headImg = headImg;
     }
+
     public String getEmail() {
         return email;
     }

@@ -73,6 +73,21 @@ public class Pimage implements Serializable {
      */
     private String modifiedUser;
 
+    public Pimage() {
+    }
+
+    public Pimage(Integer imgType, String name, String serverPath, String projectPath, String domain, LocalDateTime createdTime, LocalDateTime modifiedTime, String createdUser, String modifiedUser) {
+        this.imgType = imgType;
+        this.name = name;
+        this.serverPath = serverPath;
+        this.projectPath = projectPath;
+        this.domain = domain;
+        this.createdTime = createdTime;
+        this.modifiedTime = modifiedTime;
+        this.createdUser = createdUser;
+        this.modifiedUser = modifiedUser;
+    }
+
     public Integer getId() {
         return id;
     }

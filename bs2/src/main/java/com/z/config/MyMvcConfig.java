@@ -1,5 +1,7 @@
 package com.z.config;
 
+import cn.hutool.core.lang.Snowflake;
+import cn.hutool.core.util.IdUtil;
 import com.z.common.interceptor.LoginInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,5 +33,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Bean
     public Logger getLogger() {
         return LoggerFactory.getLogger(getClass());
+    }
+
+    @Bean
+    public Snowflake getSnowflake() {
+        return IdUtil.getSnowflake(1, 11);
     }
 }

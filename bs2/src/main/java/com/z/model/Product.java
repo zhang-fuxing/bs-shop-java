@@ -34,6 +34,12 @@ public class Product implements Serializable {
      */
     private Integer ctgId;
 
+
+    /**
+     * 商品预览图url
+     */
+    private String pimg;
+
     /**
      * 商品名字
      */
@@ -83,6 +89,14 @@ public class Product implements Serializable {
      * 是否删除：默认0，未删除，1表示已删除
      */
     private Integer isDelete;
+
+    public String getPimg() {
+        return pimg;
+    }
+
+    public void setPimg(String pimg) {
+        this.pimg = pimg;
+    }
 
     public Integer getId() {
         return id;

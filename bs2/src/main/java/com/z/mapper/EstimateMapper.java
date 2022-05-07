@@ -1,6 +1,6 @@
 package com.z.mapper;
 
-import com.z.model.Address;
+import com.z.model.Estimate;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -10,10 +10,9 @@ import org.apache.ibatis.annotations.Mapper;
  * </p>
  *
  * @author z
- * @since 2022-04-23
+ * @since 2022-05-05
  */
 @Mapper
-public interface AddressMapper extends BaseMapper<Address> {
+public interface EstimateMapper extends BaseMapper<Estimate> {
 
-    int updateAddress(Address address);
 }

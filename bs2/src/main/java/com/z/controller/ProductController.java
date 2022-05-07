@@ -1,16 +1,14 @@
 package com.z.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.z.common.util.IPages;
-import com.z.common.util.JwtUtils;
 import com.z.common.util.ResultModel;
 import com.z.model.Product;
 import com.z.service.ProductService;
-import com.z.vo.ProductVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -67,8 +65,7 @@ public class ProductController {
         if (pid == null) {
             return ResultModel.error();
         }
-        String token = request.getHeaders("token").toString();
-        String username = JwtUtils.getClaimByName(token, "username", String.class);
+        String username = "";
         if (!productService.removeProduct(pid, username)) {
             return ResultModel.error("数据库异常，移除失败");
         }
@@ -89,7 +86,7 @@ public class ProductController {
 
         logger.info("开始更新操作");
         String token = request.getHeaders("token").toString();
-        String username = JwtUtils.getClaimByName(token, "username", String.class);
+        String username = "";
         if (!productService.updateProduct(product, username)) {
             return ResultModel.error("更新失败");
         }
@@ -105,7 +102,27 @@ public class ProductController {
     @RequestMapping("/count")
     public String getProductCount() {
         logger.info("获取商品总数");
-        long count = productService.count();
+        int count = (int) productService.count();
+        return ResultModel.success(count);
+    }
+
+    @GetMapping("/count1/{lv1}")
+    public String getCount1(@PathVariable("lv1") Integer id1) {
+        QueryWrapper<Product> productQueryWrapper = new QueryWrapper<>();
+        productQueryWrapper.eq("category_id", id1).eq("is_delete",0);
+        int count1 = (int) productService.count(productQueryWrapper);
+        return ResultModel.success(count1);
+    }
+    /**
+     * 获取二级分类商品总条数
+     * @return 商品的数量
+     */
+    @RequestMapping("/count2/{lv2Id}")
+    public String getProductCount2(@PathVariable("lv2Id") Integer id2) {
+        logger.info("获取商品总数");
+        QueryWrapper<Product> wrapper = new QueryWrapper<>();
+        wrapper.eq("ctg_id",id2);
+        int count = (int) productService.count(wrapper);
         return ResultModel.success(count);
     }
 
@@ -118,8 +135,9 @@ public class ProductController {
     public String getList(@RequestBody IPages pages) {
         logger.info("查询商品列表，参数 pages:" + pages);
         String msg = "";
-        long count = productService.count();
-        int maxPage = (int) (count / pages.getPageSize());
+        double count = productService.count();
+        double maxPage =  Math.ceil(count / pages.getPageSize());
+        logger.info("maxpage:" + maxPage);
         if (pages.getCurrentPage() > maxPage) {
             return ResultModel.error("查无此页");
         }
@@ -129,11 +147,30 @@ public class ProductController {
             pages.setPageSize(100);
         }
 
-        List<ProductVO> productList = productService.getProductList(pages);
+        List<Product> productList = productService.getProductList(pages);
         if (CollectionUtils.isEmpty(productList)) {
             return ResultModel.error("未查寻到数据");
         }
 
         return ResultModel.success(msg,productList);
     }
+
+
+    @GetMapping("/productInfo/{productId}")
+    public String getProductById(@PathVariable("productId") Integer productId) {
+        return productService.getProductById(productId);
+    }
+
+
+    @PostMapping("/search/{searchText}")
+    public String searchProduct(@PathVariable("searchText") String searchText) {
+        QueryWrapper<Product> wrapper = new QueryWrapper<>();
+        wrapper.like("pname",searchText).eq("is_delete",0);
+        List<Product> list = productService.list(wrapper);
+        if (CollectionUtils.isEmpty(list)) {
+            return ResultModel.error(-1,"查询列表为空");
+        }
+        return ResultModel.success(list);
+    }
+
 }

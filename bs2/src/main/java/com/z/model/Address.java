@@ -3,7 +3,6 @@ package com.z.model;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -11,57 +10,69 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author z
- * @since 2022-04-19
+ * @since 2022-04-23
  */
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 地址id，自增
-     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    /**
-     * 用户id，自增
-     */
     private Integer uid;
 
-    /**
-     * 用户所在地区
-     */
-    private String region;
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 
     /**
-     * 用户详细地址
+     * 地址名称
      */
-    private String detail;
+    private String addressName;
 
     /**
-     * 收件人，接收快递的人的名字
+     * 默认发货地址：0->否；1->是
      */
-    private String consignee;
+    private Integer sendStatus;
 
     /**
-     * 收件人联系电话
+     * 是否默认收货地址：0->否；1->是
+     */
+    private Integer receiveStatus;
+
+    /**
+     * 收发货人姓名
+     */
+    private String name;
+
+    /**
+     * 收货人电话
      */
     private String phone;
 
     /**
-     * 地址创建时间
+     * 省/直辖市
      */
-    private LocalDateTime createdTime;
+    private String province;
 
     /**
-     * 地址修改时间
+     * 市
      */
-    private LocalDateTime modifiedTime;
+    private String city;
 
     /**
-     * 是不是默认地址，0:不默认；1默认
+     * 区
      */
-    private Integer defaultStatus;
+    private String region;
+
+    /**
+     * 详细地址
+     */
+    private String detailAddress;
 
     public Integer getId() {
         return id;
@@ -70,33 +81,33 @@ public class Address implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Integer getUid() {
-        return uid;
+    public String getAddressName() {
+        return addressName;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setAddressName(String addressName) {
+        this.addressName = addressName;
     }
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
-    }
-    public String getDetail() {
-        return detail;
+    public Integer getSendStatus() {
+        return sendStatus;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setSendStatus(Integer sendStatus) {
+        this.sendStatus = sendStatus;
     }
-    public String getConsignee() {
-        return consignee;
+    public Integer getReceiveStatus() {
+        return receiveStatus;
     }
 
-    public void setConsignee(String consignee) {
-        this.consignee = consignee;
+    public void setReceiveStatus(Integer receiveStatus) {
+        this.receiveStatus = receiveStatus;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     public String getPhone() {
         return phone;
@@ -105,40 +116,48 @@ public class Address implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    public LocalDateTime getCreatedTime() {
-        return createdTime;
+    public String getProvince() {
+        return province;
     }
 
-    public void setCreatedTime(LocalDateTime createdTime) {
-        this.createdTime = createdTime;
+    public void setProvince(String province) {
+        this.province = province;
     }
-    public LocalDateTime getModifiedTime() {
-        return modifiedTime;
-    }
-
-    public void setModifiedTime(LocalDateTime modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-    public Integer getDefaultStatus() {
-        return defaultStatus;
+    public String getCity() {
+        return city;
     }
 
-    public void setDefaultStatus(Integer defaultStatus) {
-        this.defaultStatus = defaultStatus;
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+    public String getDetailAddress() {
+        return detailAddress;
+    }
+
+    public void setDetailAddress(String detailAddress) {
+        this.detailAddress = detailAddress;
     }
 
     @Override
     public String toString() {
         return "Address{" +
             "id=" + id +
-            ", uid=" + uid +
-            ", region=" + region +
-            ", detail=" + detail +
-            ", consignee=" + consignee +
+            ", addressName=" + addressName +
+            ", sendStatus=" + sendStatus +
+            ", receiveStatus=" + receiveStatus +
+            ", name=" + name +
             ", phone=" + phone +
-            ", createdTime=" + createdTime +
-            ", modifiedTime=" + modifiedTime +
-            ", defaultStatus=" + defaultStatus +
+            ", province=" + province +
+            ", city=" + city +
+            ", region=" + region +
+            ", detailAddress=" + detailAddress +
         "}";
     }
 }

@@ -1,7 +1,7 @@
 package com.z.common.interceptor;
 
+import cn.hutool.jwt.JWTUtil;
 import com.z.exception.LoginException;
-import com.z.common.util.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Configuration;
@@ -29,14 +29,11 @@ public class LoginInterceptor implements HandlerInterceptor {
             log.error("token为空或token已过期");
             throw new LoginException(400,"token为空或token已过期");
         }
-        if (!JwtUtils.verify(token)) {
+        if (!JWTUtil.verify(token,"zhang".getBytes())) {
             log.error("token不正确");
             throw new LoginException(400, "token不正确");
         }
-        int id = JwtUtils.getClaimByName(token, "id",int.class);
-        String username = JwtUtils.getClaimByName(token, "username", String.class);
-        request.getSession().setAttribute("id", id);
-        request.getSession().setAttribute("username", username);
+
         return true;
     }
 }

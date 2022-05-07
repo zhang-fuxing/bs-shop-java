@@ -29,7 +29,7 @@ spring:
         - file:D:/localfile/photos/
         - file:D:/project-resources/
 
-
+# http://localhost:9000/static/show/details/1.1.jpg
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.z

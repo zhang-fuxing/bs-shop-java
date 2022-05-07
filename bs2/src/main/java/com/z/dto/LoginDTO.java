@@ -2,15 +2,24 @@ package com.z.dto;
 
 /**
  * @author zfx
- * @date 2022-03-04 15:55
+ * @date 2022-04-21 10:28
  */
 
-public class SignIn {
-
+public class LoginDTO {
     private String phone;
     private String email;
     private String password;
-    private String validateCode;
+    private String verifyCode;
+
+    public LoginDTO() {
+    }
+
+    public LoginDTO(String phone, String email, String password, String verifyCode) {
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.verifyCode = verifyCode;
+    }
 
     public String getPhone() {
         return phone;
@@ -36,21 +45,21 @@ public class SignIn {
         this.password = password;
     }
 
-    public String getValidateCode() {
-        return validateCode;
+    public String getVerifyCode() {
+        return verifyCode;
     }
 
-    public void setValidateCode(String validateCode) {
-        this.validateCode = validateCode;
+    public void setVerifyCode(String verifyCode) {
+        this.verifyCode = verifyCode;
     }
 
     @Override
     public String toString() {
-        return "SignIn{" +
+        return "LoginDTO{" +
                 "phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", validateCode='" + validateCode + '\'' +
+                ", verifyCode='" + verifyCode + '\'' +
                 '}';
     }
 }

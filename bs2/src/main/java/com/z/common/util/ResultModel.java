@@ -35,4 +35,8 @@ public class ResultModel<T> {
     public static <T> String error(){
         return JSON.toJSONString( new ResultModel<T>(-1,"error"));
     }
+
+    public static <T> String success(int code, String message) {
+        return JSON.toJSONString(new ResultModel<T>(code,message));
+    }
 }

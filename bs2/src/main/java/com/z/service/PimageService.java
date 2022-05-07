@@ -13,5 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
  * @since 2022-04-19
  */
 public interface PimageService extends IService<Pimage> {
-    String fileupload(MultipartFile[] files, String path, String prefix);
+    String fileupload(MultipartFile files, int imgType);
+    String getImageListByPid(int productId);
 }

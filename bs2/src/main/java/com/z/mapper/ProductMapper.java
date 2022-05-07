@@ -3,7 +3,6 @@ package com.z.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.z.common.util.IPages;
 import com.z.model.Product;
-import com.z.vo.ProductVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -19,5 +18,5 @@ import java.util.List;
 @Mapper
 public interface ProductMapper extends BaseMapper<Product> {
     int selectProductNum();
-    List<ProductVO> selectProductList(IPages iPages);
+    List<Product> selectProductList(IPages iPages);
 }
