@@ -3,6 +3,7 @@ package com.z.controller;
 
 import cn.hutool.jwt.JWTUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.z.common.util.ResultModel;
 import com.z.model.Orders;
 import com.z.service.CartItemService;
@@ -62,6 +63,16 @@ public class OrdersController {
         return ResultModel.success(list);
     }
 
+    @PostMapping("/list")
+    public String getLists(HttpServletRequest request) {
+        int uid = (int) JWTUtil.parseToken(request.getHeader("token")).getPayload("id");
+        List<Orders> list = ordersService.list(new QueryWrapper<Orders>()
+                .eq("uid", uid)
+                .eq("is_delete", 0)
+        );
+        return ResultModel.success(list);
+    }
+
     @PostMapping("/receive")
     public String getOrderList(HttpServletRequest request) {
         int uid = (int) JWTUtil.parseToken(request.getHeader("token")).getPayload("id");
@@ -71,6 +82,14 @@ public class OrdersController {
                 .eq("status", 1)
         );
         return ResultModel.success(list);
+    }
+
+    @PostMapping("/sendGoods/{oid}")
+    public String sendGoods(@PathVariable("oid") int oid, HttpServletRequest request) {
+        UpdateWrapper<Orders> wrapper = new UpdateWrapper<>();
+        wrapper.eq("id", oid).set("status",1);
+        boolean update = ordersService.update(wrapper);
+        return ResultModel.success(update);
     }
 
 

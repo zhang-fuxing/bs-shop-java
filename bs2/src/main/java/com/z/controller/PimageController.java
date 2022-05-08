@@ -38,12 +38,12 @@ public class PimageController {
             return ResultModel.error("未选择文件");
         }
 
-        String fileupload = ps.fileupload(files,imgType);
-        if (fileupload == null) {
+        String imageObject = ps.fileupload(files,imgType);
+        if (imageObject == null) {
             return ResultModel.error("上传错误");
         }
 
-        return (fileupload);
+        return (imageObject);
     }
 
     @GetMapping("/imgList/{productId}")

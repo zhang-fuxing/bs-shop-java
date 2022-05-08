@@ -3,8 +3,11 @@ package com.z.controller;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.GifCaptcha;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.extra.mail.MailUtil;
 import cn.hutool.jwt.JWTUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.z.common.util.CheckArgs;
 import com.z.common.util.CheckModel;
 import com.z.common.util.ResultModel;
@@ -121,5 +124,31 @@ public class UserController {
         }
 
         return ResultModel.success(user);
+    }
+
+    @PostMapping("/remake/{uid}")
+    public String remakePassword(@PathVariable("uid") int uid) {
+        User user = userService.getById(uid);
+        String email = user.getEmail();
+
+        String s = MailUtil.send(email, "密码重置", "尊敬的用户，您的密码以重置为  " + RandomUtil.randomString(10) + "  ,请尽快登陆账号更改密码。", false);
+
+        return ResultModel.success(s);
+    }
+
+    @PostMapping("/freeze/{uid}")
+    public String freeze(@PathVariable("uid") int uid) {
+        UpdateWrapper<User> wrapper = new UpdateWrapper<>();
+        wrapper.eq("id",uid).set("user_status", -1);
+        boolean update = userService.update(wrapper);
+        return ResultModel.success(update);
+    }
+
+    @PostMapping("/unfreeze/{uid}")
+    public String unfreeze(@PathVariable("uid") int uid) {
+        UpdateWrapper<User> wrapper = new UpdateWrapper<>();
+        wrapper.eq("id",uid).set("user_status", 1);
+        boolean update = userService.update(wrapper);
+        return ResultModel.success(update);
     }
 }

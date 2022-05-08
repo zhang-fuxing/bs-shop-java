@@ -2,6 +2,7 @@ package com.z.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.z.common.util.IPages;
+import com.z.model.PrdAttr;
 import com.z.model.Product;
 
 import java.util.List;
@@ -19,5 +20,4 @@ public interface ProductService extends IService<Product> {
     boolean removeProduct(Integer id,String username);
     boolean updateProduct(Product product,String username);
     String getProductById(Integer productId);
-
 }

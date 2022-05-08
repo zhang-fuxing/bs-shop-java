@@ -1,10 +1,14 @@
 package com.z.controller;
 
 
+import cn.hutool.jwt.JWTUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.z.common.util.IPages;
 import com.z.common.util.ResultModel;
+import com.z.dto.ProductDTO;
+import com.z.model.Pimage;
 import com.z.model.Product;
+import com.z.service.PimageService;
 import com.z.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +17,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -32,25 +37,47 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    /**
-     * 添加商品的接口
-     *
-     * @param product 添加的目标对象
-     * @return 根据情况返回方法执行情况
-     */
+    @Autowired
+    private PimageService pimageService;
+
     @PostMapping("/add")
-    public String addProduct(@RequestBody Product product) {
-        logger.info("进入添加商品方法，参数 product:" + product);
+    public String addProduct(@RequestBody ProductDTO productDTO, HttpServletRequest request) {
+
+        System.out.println(productDTO);
+        Product product = productDTO.getProduct();
+        Pimage[] preview = productDTO.getPreviewImage();
+        Pimage[] detail = productDTO.getDetailImage();
+
         if (product == null) {
             logger.info("参数错误");
             return ResultModel.error("不能添加空商品");
         }
+
+
+        String uname = (String) JWTUtil.parseToken(request.getHeader("token")).getPayload("uname");
         boolean save = productService.save(product);
-        if (!save) {
-            logger.info("插入数据库失败");
-            return ResultModel.error("插入失败");
+        Integer pid = null;
+        if (save) {
+            pid = product.getId();
+            if (preview != null) {
+               for (Pimage pimage : preview) {
+                   pimage.setPid(pid);
+                   pimage.setCreatedUser(uname);
+                   pimage.setCreatedTime(LocalDateTime.now());
+                   pimageService.save(pimage);
+               }
+           }
+           if (detail != null) {
+               for (Pimage pimage : detail) {
+                   pimage.setPid(pid);
+                   pimage.setCreatedUser(uname);
+                   pimage.setCreatedTime(LocalDateTime.now());
+                   pimageService.save(pimage);
+               }
+           }
         }
-        return ResultModel.success("添加成功");
+
+        return ResultModel.success("添加成功",pid);
     }
 
     /**
