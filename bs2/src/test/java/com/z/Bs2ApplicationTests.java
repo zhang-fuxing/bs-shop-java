@@ -1,7 +1,6 @@
 package com.z;
 
 import cn.hutool.core.lang.Snowflake;
-import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.z.mapper.PimageMapper;
 import com.z.mapper.ProductMapper;
@@ -12,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,7 +49,8 @@ class Bs2ApplicationTests {
     void context() {
         // MailUtil.send("zhangfuxing1010@163.com", "邮件测试","123456",false);
 
-        System.out.println(RandomUtil.randomString(10));
+        File file = new File("D:\\localfile\\iso\\1.bin");
+        file.delete();
     }
 
     @Test

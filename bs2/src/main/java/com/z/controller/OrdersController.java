@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -84,14 +85,34 @@ public class OrdersController {
         return ResultModel.success(list);
     }
 
+    @PostMapping("/receive2")
+    public String getOrderList2(HttpServletRequest request) {
+        int uid = (int) JWTUtil.parseToken(request.getHeader("token")).getPayload("id");
+        List<Orders> list = ordersService.list(new QueryWrapper<Orders>()
+                .eq("uid", uid)
+                .eq("is_delete", 0)
+                .eq("status", 2)
+        );
+        return ResultModel.success(list);
+    }
+
     @PostMapping("/sendGoods/{oid}")
     public String sendGoods(@PathVariable("oid") int oid, HttpServletRequest request) {
+        String uname = (String) JWTUtil.parseToken(request.getHeader("token")).getPayload("uname");
         UpdateWrapper<Orders> wrapper = new UpdateWrapper<>();
-        wrapper.eq("id", oid).set("status",1);
+        wrapper.eq("id", oid).set("status",1).set("modified_user",uname).set("modified_time", LocalDateTime.now());
         boolean update = ordersService.update(wrapper);
         return ResultModel.success(update);
     }
 
+    @PostMapping("/received/{oid}")
+    public String received(@PathVariable("oid") int oid, HttpServletRequest request) {
+        String uname = (String) JWTUtil.parseToken(request.getHeader("token")).getPayload("uname");
+        UpdateWrapper<Orders> wrapper = new UpdateWrapper<>();
+        wrapper.eq("id", oid).set("status",2).set("modified_user",uname).set("modified_time", LocalDateTime.now());
+        boolean update = ordersService.update(wrapper);
+        return ResultModel.success(update);
+    }
 
 }
 

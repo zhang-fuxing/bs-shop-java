@@ -113,7 +113,8 @@ public class ProductController {
 
         logger.info("开始更新操作");
         String token = request.getHeaders("token").toString();
-        String username = "";
+        String username = (String) JWTUtil.parseToken(token).getPayload("uname");
+
         if (!productService.updateProduct(product, username)) {
             return ResultModel.error("更新失败");
         }

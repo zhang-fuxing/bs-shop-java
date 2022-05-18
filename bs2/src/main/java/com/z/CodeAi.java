@@ -36,7 +36,7 @@ public class CodeAi {
                     // "user","product","pimage","ctg_detail","estimate"，"address","category","cimage",
                     // "prd_attr"，"order","address","cart_item","order_item"，"cart_item","user_estimate"
                     // "recommend"
-                    builder.addInclude("estimate") // 设置需要生成的表名
+                    builder.addInclude("carousel") // 设置需要生成的表名
                             .serviceBuilder()
                             .formatServiceFileName("%sService")
                             .mapperBuilder()
